@@ -1,6 +1,6 @@
 """
-VetAI — Streamlit App (Fixed)
-pip install streamlit torch torchvision pillow youtubesearchpython
+VetAI — Streamlit App (Fixed for Streamlit Cloud)
+pip install streamlit torch torchvision pillow
 streamlit run app.py
 """
 
@@ -103,28 +103,28 @@ hr { border-color: rgba(74,222,128,0.1) !important; }
 #  MA'LUMOTLAR BAZASI
 # ─────────────────────────────────────────────
 DISEASE_DB = {
-    "Dental Disease in Dog":        {"uz":"Tish kasalligi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Og'iz hidi","Ovqatdan bosh tortish","Tish tushishi","Qizil milk"],"action":"Professional tish tozalash uchun veterinarga boring. Anesteziya ostida tish tashlanishi mumkin.","prevention":"Kunlik tish yuvish, maxsus tish chaynagichlari va quruq dental ozuqa bering.","youtube":"dog dental disease treatment vet guide"},
-    "Distemper in Dog":             {"uz":"Çuma (Distemper) — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Isitma","Burun oqishi","Ko'z yoshi","Yo'tal","Talvasa"],"action":"SHOSHILINCH! Davo yo'q — simptomatik davolash. Kasal itni zudlik bilan izolyatsiya qiling.","prevention":"Har yili CDV (DHPP) emlash majburiy. 6-8-12 haftalik bolakaylarga vaksinatsiya.","youtube":"distemper in dogs symptoms treatment recovery"},
-    "Eye Infection in Dog":         {"uz":"Ko'z infeksiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'z qizarishi","Ko'z yoshi","Yiring","Qovoq shishi"],"action":"Steril ko'z yuvish eritmasi bilan yuving. Antibiotikli ko'z tomizg'isi uchun veterinarga boring.","prevention":"Ko'zni begona jismlardan saqlang, muntazam ko'z tekshiruvi o'tkazing.","youtube":"dog eye infection conjunctivitis treatment vet"},
-    "Fungal Infection in Dog":      {"uz":"Qo'ziqorin infeksiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Teri toshmasi","Qalinlashgan teri","Qichish","Yoqimsiz hid"],"action":"Antifungal shampun (Ketoconazole 2%) va og'iz antifungal dori kerak. Veterinar retsepti zarur.","prevention":"Quruq, toza muhit saqlang. Namlik va immunitetni pasaytiruvchi holatlardan saqlang.","youtube":"fungal infection dog skin yeast treatment"},
-    "Hot Spots in Dog":             {"uz":"Issiq dog'lar (Pyoderma) — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Qizil, nam yara","Qichish","Jun to'kilishi","Shish"],"action":"Soha junini qirqing, antiseptik bilan tozalang. Antibiotikli krem va Elizabeth yoqasi kerak.","prevention":"Terini quruq ushlab turing. Tirnash sababini (burgalar, allergen) davolang.","youtube":"hot spots in dogs treatment home remedy vet"},
-    "Kennel Cough in Dog":          {"uz":"Kennel yo'tali — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Qattiq yo'tal","G'o'ng'illash","Burun oqishi","Letargiya"],"action":"Dam oldiring, boshqa itlardan izolyatsiya qiling. Og'ir holda antibiotik buyuriladi.","prevention":"Bordetella vaksinasi. Ko'p itlar bo'lgan joylarda xavf yuqori.","youtube":"kennel cough in dogs home treatment recovery"},
-    "Mange in Dog":                 {"uz":"Manj (Qo'tir) — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Jun to'kilishi","Qattiq qichish","Teri qorayishi","Yara"],"action":"IZOLYATSIYA ZARUR! Teri biopsiyasi uchun veterinar ko'rigi zarur. Ivermectin bilan davolash.","prevention":"Kasal hayvonlar bilan kontaktni oldini oling. Uy va to'shakni dezinfektsiya qiling.","youtube":"mange in dogs treatment ivermectin demodectic"},
-    "Parvovirus in Dog":            {"uz":"Parvovirus — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Qon aralash ich ketish","Qusish","Letargiya","Ishtaha yo'qligi"],"action":"HAYOT XAVFI! Darhol veterinarga. Stasionar davolash, IV suyuqlik, antibiotik majburiy.","prevention":"DHPP vaksinatsiyasi qat'iy. 6 haftalikdan boshlab, har yili takrorlash.","youtube":"parvovirus in dogs treatment survival guide"},
-    "Skin Allergy in Dog":          {"uz":"Teri allergiyasi — It","animal":"🐕","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Qichish","Qizarish","Toshma","Quloq infeksiyasi"],"action":"Allergeni aniqlash uchun veterinar sinovlari. Antihistamin yoki ozuqa o'zgartirish kerak.","prevention":"Allergenlardan (chang, ba'zi ozuqalar) uzoq turing. Muntazam cho'miltirib turing.","youtube":"dog skin allergy treatment itching relief atopy"},
-    "Tick Infestation in Dog":      {"uz":"Kana infestatsiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'rinadigan kanalar","Bezovtalik","Isitma","Letargiya"],"action":"Kanani pinset bilan tekis tortib oling. Borrelia tekshiruvi uchun veterinarga boring.","prevention":"Har oyda kana dori (NexGard, Frontline). O't-o'lanlar orasida yurmaslik.","youtube":"tick removal dog treatment lyme disease prevention"},
-    "Worm Infection in Dog":        {"uz":"Qurt kasalligi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ich kelishi","Qusish","Vazn yo'qotish","Axlatda qurtlar"],"action":"Darhol veterinarga murojaat. Antiparazitar dori (Milbemax, Drontal) kerak.","prevention":"Har 3 oyda gijja dori bering. Xom go'sht bermang.","youtube":"worm infection in dogs deworming treatment roundworm"},
-    "Dental Disease in Cat":        {"uz":"Tish kasalligi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Og'iz hidi","Ovqatdan bosh tortish","Oqish","Tish tushishi"],"action":"Professional tish tozalash uchun veterinarga boring. NSAIDlar og'riqni kamaytiradi.","prevention":"Kunlik tish yuvish, maxsus dental qo'shimchalar va quruq ozuqa.","youtube":"cat dental disease tooth resorption treatment vet"},
-    "Ear Mites in Cat":             {"uz":"Quloq kanasi — Mushuk","animal":"🐱","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Quloq qashish","Qoramtir axlat","Bosh silkitish","Quloq hidi"],"action":"Quloq tomizg'isi (Otodex, Milbemite) va quloqni tozalash kerak.","prevention":"Muntazam quloq tekshiruvi. Ko'chada yurgan mushukda xavf yuqori.","youtube":"ear mites in cats treatment home remedy otodectes"},
-    "Eye Infection in Cat":         {"uz":"Ko'z infeksiyasi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'z yoshi","Yiring","Qizarish","Ko'z ochib bo'lmaslik"],"action":"Antibiotikli ko'z tomizg'isi uchun veterinarga boring. Herpesvirus uchun antiviral ham kerak.","prevention":"Yangi mushukni karantin qiling. Barcha mushuklar FVRCP vaksinatsiyasi.","youtube":"cat eye infection conjunctivitis herpesvirus treatment"},
-    "Feline Leukemia":              {"uz":"Mushuk leykemiyasi (FeLV)","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Letargiya","Vazn yo'qotish","Isitma","Teri infeksiyalari"],"action":"DARHOL veterinarga! Davolash yo'q, hayot sifatini oshirish muhim. Izolyatsiya qiling.","prevention":"FeLV vaksinatsiyasi majburiy. Mushukni faqat ichkarida saqlang.","youtube":"feline leukemia FeLV management care prognosis"},
-    "Feline Panleukopenia":         {"uz":"Mushuk panleykopenyasi (FPV)","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Qusish","Ich ketish","Yuqori isitma","Xavfli letargiya"],"action":"HAYOT XAVFI! Darhol veterinarga. Stasionar davolash, IV suyuqlik, immunoglobulin kerak.","prevention":"FVRCP vaksinatsiyasi qat'iy. 8-16 haftalikda emlash.","youtube":"feline panleukopenia treatment recovery survival"},
-    "Fungal Infection in Cat":      {"uz":"Qo'ziqorin infeksiyasi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Jun to'kilishi","Teri qichishi","Qazish","Dog'lar"],"action":"Antifungal dori (Itraconazole yoki Terbinafine) uchun veterinarga boring. 6-8 hafta davolash.","prevention":"Namlikni kamaytiring, immunitetni kuchaytirib turing.","youtube":"fungal infection cat skin ringworm treatment antifungal"},
-    "Ringworm in Cat":              {"uz":"Qo'ng'iroq qurt (Dermatofitoz) — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Doira shaklidagi dog'lar","Jun to'kilishi","Teri qichishi"],"action":"Antifungal shampun (Miconazole) va og'iz dori. Uy dezinfektsiyasi — ODAMLARGA YUQADI!","prevention":"Yangi hayvonlarni karantin qiling. Immunitetni kuchaytirib turing.","youtube":"ringworm in cats treatment antifungal shampoo vet"},
-    "Scabies in Cat":               {"uz":"Qo'tir (Scabies) — Mushuk","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Kuchli qichish","Jun to'kilishi","Teri yalang'ochligi","Yara"],"action":"IZOLYATSIYA! Ivermectin yoki Selamectin bilan davolash. ODAMLARGA YUQADI!","prevention":"Kasal hayvonlar bilan kontaktni to'xtatib, uy va to'shakni dezinfektsiya qiling.","youtube":"scabies in cats notoedric mange treatment vet"},
-    "Skin Allergy in Cat":          {"uz":"Teri allergiyasi — Mushuk","animal":"🐱","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Qichish","Toshma","Jun yutish","Teri qizarishi"],"action":"Veterinar allergen testini o'tkazsin. Ozuqa allergiyasi bo'lsa — gidrolizat ozuqaga o'ting.","prevention":"Yangi ozuqa, yostiq, detergentlardan keyin kuzating.","youtube":"cat skin allergy treatment food allergy itching"},
-    "Urinary Tract Infection in Cat":{"uz":"Siydik yo'li infeksiyasi — Mushuk","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Peshob qila olmaslik","Qon aralash siydik","Tez-tez siydik","Qorin og'rig'i"],"action":"SHOSHILINCH! Qila olmasa — hayot xavfi. Darhol veterinarga. Antibiotik va tekshirish kerak.","prevention":"Ko'proq suv ichirish, nam ozuqa bering. Siydik qumiga e'tibor bering.","youtube":"cat urinary tract infection FLUTD blockage treatment"},
-    "Worm Infection in Cat":        {"uz":"Qurt kasalligi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ich kelishi","Qusish","Vazn yo'qotish","Dam bo'lish"],"action":"Gijja dorisi (Milbemax, Profender) bering. 2 hafta o'tib takrorlash kerak.","prevention":"Har 3 oyda profilaktik gijja dori. Xom go'sht bermang.","youtube":"worm infection cats deworming tapeworm roundworm treatment"},
+    "Dental Disease in Dog":        {"uz":"Tish kasalligi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Og'iz hidi","Ovqatdan bosh tortish","Tish tushishi","Qizil milk"],"action":"Professional tish tozalash uchun veterinarga boring. Anesteziya ostida tish tashlanishi mumkin.","prevention":"Kunlik tish yuvish, maxsus tish chaynagichlari va quruq dental ozuqa bering."},
+    "Distemper in Dog":             {"uz":"Çuma (Distemper) — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Isitma","Burun oqishi","Ko'z yoshi","Yo'tal","Talvasa"],"action":"SHOSHILINCH! Davo yo'q — simptomatik davolash. Kasal itni zudlik bilan izolyatsiya qiling.","prevention":"Har yili CDV (DHPP) emlash majburiy. 6-8-12 haftalik bolakaylarga vaksinatsiya."},
+    "Eye Infection in Dog":         {"uz":"Ko'z infeksiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'z qizarishi","Ko'z yoshi","Yiring","Qovoq shishi"],"action":"Steril ko'z yuvish eritmasi bilan yuving. Antibiotikli ko'z tomizg'isi uchun veterinarga boring.","prevention":"Ko'zni begona jismlardan saqlang, muntazam ko'z tekshiruvi o'tkazing."},
+    "Fungal Infection in Dog":      {"uz":"Qo'ziqorin infeksiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Teri toshmasi","Qalinlashgan teri","Qichish","Yoqimsiz hid"],"action":"Antifungal shampun (Ketoconazole 2%) va og'iz antifungal dori kerak. Veterinar retsepti zarur.","prevention":"Quruq, toza muhit saqlang. Namlik va immunitetni pasaytiruvchi holatlardan saqlang."},
+    "Hot Spots in Dog":             {"uz":"Issiq dog'lar (Pyoderma) — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Qizil, nam yara","Qichish","Jun to'kilishi","Shish"],"action":"Soha junini qirqing, antiseptik bilan tozalang. Antibiotikli krem va Elizabeth yoqasi kerak.","prevention":"Terini quruq ushlab turing. Tirnash sababini (burgalar, allergen) davolang."},
+    "Kennel Cough in Dog":          {"uz":"Kennel yo'tali — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Qattiq yo'tal","G'o'ng'illash","Burun oqishi","Letargiya"],"action":"Dam oldiring, boshqa itlardan izolyatsiya qiling. Og'ir holda antibiotik buyuriladi.","prevention":"Bordetella vaksinasi. Ko'p itlar bo'lgan joylarda xavf yuqori."},
+    "Mange in Dog":                 {"uz":"Manj (Qo'tir) — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Jun to'kilishi","Qattiq qichish","Teri qorayishi","Yara"],"action":"IZOLYATSIYA ZARUR! Teri biopsiyasi uchun veterinar ko'rigi zarur. Ivermectin bilan davolash.","prevention":"Kasal hayvonlar bilan kontaktni oldini oling. Uy va to'shakni dezinfektsiya qiling."},
+    "Parvovirus in Dog":            {"uz":"Parvovirus — It","animal":"🐕","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Qon aralash ich ketish","Qusish","Letargiya","Ishtaha yo'qligi"],"action":"HAYOT XAVFI! Darhol veterinarga. Stasionar davolash, IV suyuqlik, antibiotik majburiy.","prevention":"DHPP vaksinatsiyasi qat'iy. 6 haftalikdan boshlab, har yili takrorlash."},
+    "Skin Allergy in Dog":          {"uz":"Teri allergiyasi — It","animal":"🐕","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Qichish","Qizarish","Toshma","Quloq infeksiyasi"],"action":"Allergeni aniqlash uchun veterinar sinovlari. Antihistamin yoki ozuqa o'zgartirish kerak.","prevention":"Allergenlardan (chang, ba'zi ozuqalar) uzoq turing. Muntazam cho'miltirib turing."},
+    "Tick Infestation in Dog":      {"uz":"Kana infestatsiyasi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'rinadigan kanalar","Bezovtalik","Isitma","Letargiya"],"action":"Kanani pinset bilan tekis tortib oling. Borrelia tekshiruvi uchun veterinarga boring.","prevention":"Har oyda kana dori (NexGard, Frontline). O't-o'lanlar orasida yurmaslik."},
+    "Worm Infection in Dog":        {"uz":"Qurt kasalligi — It","animal":"🐕","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ich kelishi","Qusish","Vazn yo'qotish","Axlatda qurtlar"],"action":"Darhol veterinarga murojaat. Antiparazitar dori (Milbemax, Drontal) kerak.","prevention":"Har 3 oyda gijja dori bering. Xom go'sht bermang."},
+    "Dental Disease in Cat":        {"uz":"Tish kasalligi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Og'iz hidi","Ovqatdan bosh tortish","Oqish","Tish tushishi"],"action":"Professional tish tozalash uchun veterinarga boring. NSAIDlar og'riqni kamaytiradi.","prevention":"Kunlik tish yuvish, maxsus dental qo'shimchalar va quruq ozuqa."},
+    "Ear Mites in Cat":             {"uz":"Quloq kanasi — Mushuk","animal":"🐱","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Quloq qashish","Qoramtir axlat","Bosh silkitish","Quloq hidi"],"action":"Quloq tomizg'isi (Otodex, Milbemite) va quloqni tozalash kerak.","prevention":"Muntazam quloq tekshiruvi. Ko'chada yurgan mushukda xavf yuqori."},
+    "Eye Infection in Cat":         {"uz":"Ko'z infeksiyasi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ko'z yoshi","Yiring","Qizarish","Ko'z ochib bo'lmaslik"],"action":"Antibiotikli ko'z tomizg'isi uchun veterinarga boring. Herpesvirus uchun antiviral ham kerak.","prevention":"Yangi mushukni karantin qiling. Barcha mushuklar FVRCP vaksinatsiyasi."},
+    "Feline Leukemia":              {"uz":"Mushuk leykemiyasi (FeLV)","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Letargiya","Vazn yo'qotish","Isitma","Teri infeksiyalari"],"action":"DARHOL veterinarga! Davolash yo'q, hayot sifatini oshirish muhim. Izolyatsiya qiling.","prevention":"FeLV vaksinatsiyasi majburiy. Mushukni faqat ichkarida saqlang."},
+    "Feline Panleukopenia":         {"uz":"Mushuk panleykopenyasi (FPV)","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Qusish","Ich ketish","Yuqori isitma","Xavfli letargiya"],"action":"HAYOT XAVFI! Darhol veterinarga. Stasionar davolash, IV suyuqlik, immunoglobulin kerak.","prevention":"FVRCP vaksinatsiyasi qat'iy. 8-16 haftalikda emlash."},
+    "Fungal Infection in Cat":      {"uz":"Qo'ziqorin infeksiyasi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Jun to'kilishi","Teri qichishi","Qazish","Dog'lar"],"action":"Antifungal dori (Itraconazole yoki Terbinafine) uchun veterinarga boring. 6-8 hafta davolash.","prevention":"Namlikni kamaytiring, immunitetni kuchaytirib turing."},
+    "Ringworm in Cat":              {"uz":"Qo'ng'iroq qurt (Dermatofitoz) — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Doira shaklidagi dog'lar","Jun to'kilishi","Teri qichishi"],"action":"Antifungal shampun (Miconazole) va og'iz dori. Uy dezinfektsiyasi — ODAMLARGA YUQADI!","prevention":"Yangi hayvonlarni karantin qiling. Immunitetni kuchaytirib turing."},
+    "Scabies in Cat":               {"uz":"Qo'tir (Scabies) — Mushuk","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Kuchli qichish","Jun to'kilishi","Teri yalang'ochligi","Yara"],"action":"IZOLYATSIYA! Ivermectin yoki Selamectin bilan davolash. ODAMLARGA YUQADI!","prevention":"Kasal hayvonlar bilan kontaktni to'xtatib, uy va to'shakni dezinfektsiya qiling."},
+    "Skin Allergy in Cat":          {"uz":"Teri allergiyasi — Mushuk","animal":"🐱","risk":"LOW","risk_uz":"PAST","color":"#16a34a","bg":"rgba(22,163,74,0.08)","symptoms":["Qichish","Toshma","Jun yutish","Teri qizarishi"],"action":"Veterinar allergen testini o'tkazsin. Ozuqa allergiyasi bo'lsa — gidrolizat ozuqaga o'ting.","prevention":"Yangi ozuqa, yostiq, detergentlardan keyin kuzating."},
+    "Urinary Tract Infection in Cat":{"uz":"Siydik yo'li infeksiyasi — Mushuk","animal":"🐱","risk":"HIGH","risk_uz":"YUQORI","color":"#dc2626","bg":"rgba(220,38,38,0.08)","symptoms":["Peshob qila olmaslik","Qon aralash siydik","Tez-tez siydik","Qorin og'rig'i"],"action":"SHOSHILINCH! Qila olmasa — hayot xavfi. Darhol veterinarga. Antibiotik va tekshirish kerak.","prevention":"Ko'proq suv ichirish, nam ozuqa bering. Siydik qumiga e'tibor bering."},
+    "Worm Infection in Cat":        {"uz":"Qurt kasalligi — Mushuk","animal":"🐱","risk":"MEDIUM","risk_uz":"O'RTA","color":"#d97706","bg":"rgba(217,119,6,0.08)","symptoms":["Ich kelishi","Qusish","Vazn yo'qotish","Dam bo'lish"],"action":"Gijja dorisi (Milbemax, Profender) bering. 2 hafta o'tib takrorlash kerak.","prevention":"Har 3 oyda profilaktik gijja dori. Xom go'sht bermang."},
 }
 
 CLASS_NAMES = sorted(DISEASE_DB.keys())
@@ -155,14 +155,6 @@ def predict(img, model, device):
     with torch.no_grad():
         probs = torch.softmax(model(t), dim=1)[0]
     return CLASS_NAMES[probs.argmax().item()], probs.cpu().tolist()
-
-def fetch_videos(query):
-    try:
-        from youtubesearchpython import VideosSearch
-        r = VideosSearch(query, limit=4).result().get("result", [])
-        return r
-    except:
-        return []
 
 # ─────────────────────────────────────────────
 #  HEADER
@@ -326,7 +318,7 @@ if btn and uploaded and model:
     """, unsafe_allow_html=True)
 
     # ── TABS ──────────────────────────────────
-    tab1, tab2, tab3 = st.tabs(["💊 Davolash Ma'lumoti", "📊 Top 5 Natija", "📺 YouTube Videolar"])
+    tab1, tab2 = st.tabs(["💊 Davolash Ma'lumoti", "📊 Top 5 Natija"])
 
     # TAB 1
     with tab1:
@@ -417,80 +409,6 @@ if btn and uploaded and model:
 
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # TAB 3
-    with tab3:
-        yt_search = f"https://www.youtube.com/results?search_query={info['youtube'].replace(' ','+')}"
-        st.markdown(f"""
-        <div style="background:rgba(255,0,0,0.05);border:1px solid rgba(255,0,0,0.12);
-                    border-radius:12px;padding:16px 20px;margin-bottom:20px;
-                    display:flex;align-items:center;gap:14px;">
-            <span style="font-size:24px;">📺</span>
-            <div>
-                <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#f0fdf4;">
-                    Davolash Videolari
-                </div>
-                <div style="font-size:12px;color:#6b7280;margin-top:2px;">
-                    "{info['uz']}" bo'yicha videolar
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        videos = fetch_videos(info["youtube"])
-
-        if videos:
-            vc1, vc2 = st.columns(2, gap="medium")
-            for i, v in enumerate(videos[:4]):
-                thumb = (v.get("thumbnails") or [{}])[0].get("url","")
-                title = v.get("title","")
-                channel = v.get("channel",{}).get("name","")
-                duration = v.get("duration","")
-                views = v.get("viewCount",{}).get("short","")
-                url = v.get("link","")
-                thumb_html = f'<img src="{thumb}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">' if thumb else '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px;">▶</div>'
-                dur_html = f'<div style="position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,0.85);color:#fff;font-size:11px;padding:2px 6px;border-radius:4px;font-weight:700;">{duration}</div>' if duration else ""
-
-                card = f"""
-                <a href="{url}" target="_blank" style="text-decoration:none;display:block;margin-bottom:12px;">
-                    <div style="background:#0f1a14;border:1px solid rgba(255,255,255,0.06);
-                                border-radius:12px;overflow:hidden;">
-                        <div style="position:relative;padding-top:56.25%;background:#0a0f0d;">
-                            {thumb_html}
-                            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-                                        width:40px;height:40px;background:rgba(255,255,255,0.9);
-                                        border-radius:50%;display:flex;align-items:center;
-                                        justify-content:center;font-size:14px;color:#000;font-weight:700;">▶</div>
-                            {dur_html}
-                        </div>
-                        <div style="padding:12px 14px;">
-                            <div style="font-size:13px;font-weight:600;color:#e5e7eb;line-height:1.4;
-                                        margin-bottom:5px;display:-webkit-box;-webkit-line-clamp:2;
-                                        -webkit-box-orient:vertical;overflow:hidden;">{title}</div>
-                            <div style="font-size:11px;color:#6b7280;">{channel}{" · "+views+" ko'rish" if views else ""}</div>
-                        </div>
-                    </div>
-                </a>
-                """
-                with (vc1 if i % 2 == 0 else vc2):
-                    st.markdown(card, unsafe_allow_html=True)
-        else:
-            st.markdown("""
-            <div style="text-align:center;padding:32px 0;color:#6b7280;">
-                <div style="font-size:36px;margin-bottom:10px;">📺</div>
-                youtubesearchpython o'rnatilmagan yoki internet yo'q
-            </div>
-            """, unsafe_allow_html=True)
-
-        st.markdown(f"""
-        <a href="{yt_search}" target="_blank" style="text-decoration:none;">
-            <div style="text-align:center;padding:13px;background:rgba(255,0,0,0.07);
-                        border:1px solid rgba(255,0,0,0.15);color:#f87171;border-radius:10px;
-                        font-size:14px;font-weight:600;margin-top:8px;cursor:pointer;">
-                📺 YouTube'da Ko'proq Videolar →
-            </div>
-        </a>
-        """, unsafe_allow_html=True)
-
 # ─────────────────────────────────────────────
 #  FEATURES
 # ─────────────────────────────────────────────
@@ -507,7 +425,7 @@ for col, (ic, t, d, c) in zip([fc1,fc2,fc3,fc4], [
     ("📸","Vizual Tahlil","Rasm yuklang — AI vizual belgilarni aniqlaydi","#4ade80"),
     ("🤖","ResNet18 Model","PyTorch bilan train qilingan 22 ta kasallik uchun maxsus model","#60a5fa"),
     ("⚡","Darhol Natija","Soniyalar ichida aniq tashxis va simptomlar ro'yxati","#f59e0b"),
-    ("📺","YouTube","Kasallikka oid real shifokor videolarini avtomatik topadi","#f472b6"),
+    ("💊","Davolash","Har bir kasallik uchun batafsil davolash va oldini olish bo'yicha qo'llanma","#f472b6"),
 ]):
     with col:
         st.markdown(f"""
